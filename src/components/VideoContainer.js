@@ -23,9 +23,12 @@ function VideoContainer(){
         {
             videos.map((video)=>{
                 return <>
-                <Link  key={video.id} to={'/watch?v=' + video.id} >
-                    <VideoCards info = {video} ></VideoCards>
-                </Link>
+                <div className="mt-4 mr-6 w-[23%]"  key={video.id}>
+                    <Link    to={'/watch?v=' + video.id} >
+                        <VideoCards info = {video} ></VideoCards>
+                    </Link>
+                </div>
+            
                 </>
                
             })

@@ -7,8 +7,8 @@ function Sidebar(){
    
     return  !isMenuOpen ? null:(
         <>
-        <div className="col-span-1 mr-16">
-            <ul>
+        <div className=" mr-12">
+            <ul className='w-48'>
                 <li className="mt-3 pr-2  pl-2 pt-1 pb-1 bg-gray-100 rounded-md">
                     <Link to='/'>
                         <i className="fas fa-home text-xl pr-3"></i>

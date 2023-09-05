@@ -6,10 +6,10 @@ function Body() {
   return (
     <>
      
-      <div className="grid grid-flow-col mt-4">
+      <div className="flex mt-4">
         <Sidebar></Sidebar>
        
-        <div className="col-span-11">
+        <div className="">
           {/* all childerens comes under oulet  */}
           <Outlet></Outlet>
         </div>
