@@ -1,9 +1,15 @@
 import React from "react";
 import HeaderTabsList from '../components/HeaderTabsList';
+
 function HeaderTabs(){
     const listTabs = ['All','Music','Gaming','Sports','Entertainment','Movies','Cooking','Volleyball','News','Mantras','Guiter']
+   
+
+   
+ 
     return(
     <>
+
     <div className="">
         <div>
             {

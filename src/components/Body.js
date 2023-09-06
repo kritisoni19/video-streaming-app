@@ -1,6 +1,5 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-
 import { Outlet } from "react-router-dom";
 function Body() {
   return (
@@ -8,7 +7,7 @@ function Body() {
      
       <div className="flex mt-4">
         <Sidebar></Sidebar>
-       
+      
         <div className="">
           {/* all childerens comes under oulet  */}
           <Outlet></Outlet>
