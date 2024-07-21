@@ -19,12 +19,12 @@ function Header() {
     // make APi call after 200ms we can use setTimeout
     const timer = setTimeout(() => {
       // if data present in cache then show suggestion otherwise make an api call
-      if(searchCache[searchQuery]){
-        setSuggestionsList(searchCache[searchQuery]);
-      }
-      else{
-        getSearchSuggestions();
-      }
+      // if(searchCache[searchQuery]){
+      //   setSuggestionsList(searchCache[searchQuery]);
+      // }
+      // else{
+      //   getSearchSuggestions();
+      // }
      
     }, 200);
 
@@ -35,15 +35,15 @@ function Header() {
 
   const getSearchSuggestions = async () => {
     // console.log(searchQuery);
-    const data = await fetch(YOUTUBE_SUGGESTION_API + searchQuery);
+    const data = await fetch('http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=' + searchQuery);
     const json =  await data.json();
     console.log(json[1]);
     setSuggestionsList(json[1]);
 
-    // if item is not in cache then make an api call and update state
+  //   // if item is not in cache then make an api call and update state
 
     dispatch(cacheResult({
-      [searchQuery]:json[1]
+      // [searchQuery]:json[1]
     }))
   };
 
@@ -85,7 +85,7 @@ function Header() {
               <img
                 src="../images/search.png"
                 alt="search icon"
-                className="w-7"
+                className="w-5"
               />
             </button>
           </div>

@@ -8,36 +8,36 @@ function Sidebar(){
     return  !isMenuOpen ? null:(
         <>
         <div className=" mr-12">
-            <ul className='w-48'>
+            <ul className='lg:w-48 md:w-[100%] w-[100%]'>
                 <li className="mt-3 pr-2  pl-2 pt-1 pb-1 bg-gray-100 rounded-md">
                     <Link to='/'>
                         <i className="fas fa-home text-xl pr-3"></i>
-                        <span className="font-semibold text-1xl">Home</span> 
+                        <span className=" text-1xl">Home</span> 
                     </Link>
                   
                 </li>
                 <li className="mt-3 pr-2  pl-2 pt-1 pb-1 bg-gray-100 rounded-md">
                     <i className="fab fa-cotton-bureau  text-xl pr-3"></i>
-                    <span className="font-semibold text-1xl">Shorts</span> 
+                    <span className=" text-1xl">Shorts</span> 
                 </li>
                 <li className="mt-3 pr-2  pl-2 pt-1 pb-1 bg-gray-100 rounded-md">
                     <i className="fas fa-subscript  text-xl pr-3"></i>
-                    <span className="font-semibold text-1xl">Subscription</span> 
+                    <span className=" text-1xl">Subscription</span> 
                 </li>
             </ul>
             <h3 className="pt-4 border-t mt-6 border-gray-400">Explore</h3>
             <ul>
                 <li className="mt-3 pr-2  pl-2 pt-1 pb-1 bg-gray-100 rounded-md">
                     <i className="fas fa-home text-xl pr-3"></i>
-                    <span className="font-semibold text-1xl">Trending</span> 
+                    <span className=" text-1xl">Trending</span> 
                 </li>
                 <li className="mt-3 pr-2  pl-2 pt-1 pb-1 bg-gray-100 rounded-md">
                     <i className="fab fa-cotton-bureau  text-xl pr-3"></i>
-                    <span className="font-semibold text-1xl">Music</span> 
+                    <span className=" text-1xl">Music</span> 
                 </li>
                 <li className="mt-3 pr-2  pl-2 pt-1 pb-1 bg-gray-100 rounded-md">
                     <i className="fas fa-subscript  text-xl pr-3"></i>
-                    <span className="font-semibold text-1xl">Shopping</span> 
+                    <span className=" text-1xl">Shopping</span> 
                 </li>
             </ul>
         </div>

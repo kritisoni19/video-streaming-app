@@ -1,45 +1,70 @@
- import { useEffect } from 'react';
-import ChatMessage from '../components/ChatMessage';
-import { useDispatch, useSelector } from 'react-redux';
- import {addMessage} from '../utils/chatSlice';
+import { useEffect, useState } from "react";
+import ChatMessage from "../components/ChatMessage";
+import { useDispatch, useSelector } from "react-redux";
+import { addMessage } from "../utils/chatSlice";
+import { generateRandomName } from "../utils/helper";
+import { randomMessageGenerator } from "../utils/helper";
+function LiveChat() {
+  const dispatch = useDispatch();
+  //subscribe the messages
+  const chatMessages = useSelector((store) => store.chat.messages);
+  const [chatMessageSend, setChatMessageSent] = useState([]);
 
- function LiveChat(){
+  useEffect(() => {
+    // API Polling
+    const i = setInterval(() => {
+      console.log("API Polling");
 
-    const dispatch = useDispatch();
-    //subscribe the messages
-    const chatMessages  = useSelector(store =>store.chat.messages);
+      dispatch(
+        addMessage({
+          name: generateRandomName(),
+          message: randomMessageGenerator() + "🚀",
+        })
+      );
+    }, 2000);
+    return () => clearInterval(i);
+  }, []);
 
-    useEffect(() => {
-        // API Polling
-      const i =   setInterval(()=>{
-            console.log('API Polling');
 
+  
+  return (
+    <>
+     <div className="flex flex-col ">
+     <div
+        className=" border border-solid w-96 ml-8 p-2 rounded-2xl overflow-y-scroll h-[500px]
+         bg-gray-100 flex flex-col-reverse"
+      >
+        {chatMessages.map((c, index) => {
+          return (
+            <ChatMessage
+              name={c.name}
+              message={c.message}
+              key={index}
+            ></ChatMessage>
+          );
+        })}
+      </div>
+      
+      <form className="ml-8 p-2 flex" onSubmit={(e)=>{
+        e.preventDefault()
+        console.log(chatMessageSend);
             dispatch(addMessage({
-                name:'Kriti Soni',
-                message:'I am developer'
+              name:'KRITI',
+              message:chatMessageSend
             }))
-        },2000)
 
-    
+            setChatMessageSent('');
+      }}>
+                <input type='text' value={chatMessageSend} className="border w-full px-2" onChange={(e)=>
+                
+                  setChatMessageSent(e.target.value)}
+                  
+                  />
+                <button type='button' className="border p-2 bg-blue-600 text-white">Send</button>
+            </form>
+     </div>
+    </>
+  );
+}
 
-        return()=>clearInterval(i);
-
-    },[])
-
-    return(
-        <>
-        {
-          chatMessages.map((c,index)=>{
-            return (
-           
-                 <ChatMessage name={c.name} message = {c.message} key={index}></ChatMessage>
-            
-            )
-          })  
-        }
-       
-        </>
-    )
- }
-
- export default LiveChat;
+export default LiveChat;

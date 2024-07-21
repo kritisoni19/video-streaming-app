@@ -5,7 +5,7 @@ function Body() {
   return (
     <>
      
-      <div className="flex mt-4">
+      <div className="flex mt-4 justify-center">
         <Sidebar></Sidebar>
       
         <div className="">
