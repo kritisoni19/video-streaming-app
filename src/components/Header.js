@@ -51,7 +51,7 @@ function Header() {
   const toggleBtnhandler = () => {
     dispatch(toggleMenu());
   };
-
+  console.log('zz' + toggleMenu)
   return (
     <>
       <div className="flex mt-3 justify-between">

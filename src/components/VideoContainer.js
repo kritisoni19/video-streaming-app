@@ -6,18 +6,30 @@ import Shimmer from '../components/Shimmer';
 function VideoContainer(){
 
     const [videos,setVideos] = useState([]);
+    const [showShimmer,setShowShimmer] = useState(false)
 
     useEffect(()=>{
         getVideos(); 
+        window.addEventListener('scroll',handleScroll)
+
+        return () =>window.removeEventListener('scroll', handleScroll)
     },[])
 
+    const handleScroll =()=>{
+        if(window.scrollY + window.innerHeight >= document.body.scrollHeight){
+            console.log('Fetch More Content');
+        }
+        // console.log(window.scrollY + window.innerHeight >= document.body.scrollHeight)
+    }
     const getVideos = async()=>{
+        setShowShimmer(true)
         const data = await fetch(YOUTUBE_VIDEOS_API);
         const json = await data.json();
-         console.log(json.items);
-        setVideos(json.items);
+        setShowShimmer(false)
+        console.log(json.items);
+        setVideos(()=>[...videos,...json.items]);
     }
-    return videos.length === 0 ? (<Shimmer />) : (
+    return (
 
         // return <Shimmer/>
       
@@ -33,10 +45,12 @@ function VideoContainer(){
             
                 )
             })
+
         }
+        { showShimmer && <Shimmer/> }
         </div>
-       
     )
+    
 }
 
 export default VideoContainer;

@@ -39,6 +39,12 @@ function Sidebar(){
                     <i className="fas fa-subscript  text-xl pr-3"></i>
                     <span className=" text-1xl">Shopping</span> 
                 </li>
+                <li className="mt-3 pr-2  pl-2 pt-1 pb-1 bg-gray-100 rounded-md">
+                   <Link to='/Accordion/'>
+                    <i className="fas fa-subscript  text-xl pr-3"></i>
+                    <span className=" text-1xl">Accordion</span> 
+                   </Link>
+                </li>
             </ul>
         </div>
         </>

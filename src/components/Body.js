@@ -5,10 +5,10 @@ function Body() {
   return (
     <>
      
-      <div className="flex mt-4 justify-center">
+      <div className="flex mt-4">
         <Sidebar></Sidebar>
       
-        <div className="">
+        <div className="wd-[100%]">
           {/* all childerens comes under oulet  */}
           <Outlet></Outlet>
         </div>
